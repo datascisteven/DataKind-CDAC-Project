@@ -20,7 +20,7 @@ DataKind provides the platform and resources for data scientists at any level of
 # Objectives:
 
 1. First Task Group
-	- 1a.	To align Ookla data at the census trac level for Florida
+	- 1a. To align Ookla data at the census trac level for Florida
 	- 1b. Map the FCC and Ookla datasets at census tract level
 	- 1c. For maps, visualize availability (FCC) / performance (Ookla) and access (ACS) for each state
 
@@ -31,18 +31,43 @@ DataKind provides the platform and resources for data scientists at any level of
 
 # Tableau visualizations:
 
+## NYC Visualizations
+
+[Link to Tableau Public NYC 1](https://public.tableau.com/views/DataKIndCDACProjectVisualization-NYCMetro2/Dashboard2?:language=en-US&:display_count=n&:origin=viz_share_link)
+
+[Link to Tableau Public NYC 2](https://public.tableau.com/views/DataKIndUCCDACProjectPreliminaryEDA-NYCMetro/NYCMetroArea?:language=en-US&:display_count=n&:origin=viz_share_link)
+
 <img src='images/nyc_tableau.png'>
 
+[Link to Tableau Public Chicago](https://public.tableau.com/views/DataKIndUCCDACProjectPreliminaryEDA-Chicago/Chicagoland?:language=en-US&:display_count=n&:origin=viz_share_link)
 
 <img src='images/tableau_chicago.png'>
 
 
 
-# Roadmap:
+# Folder Structure:
 
+	├── README.md                   <- the top-level README for reviewers of this project
+	├── joining_datasets.ipynb      <- notebook for developing pipeline for data cleaning
+	├── tableau.ipynb               <- notebook for preparing data for Tableau uplaod
+	├── pca.ipynb                   <- notebook for PCA on task group 1 data
+	├── permits.ipynb               <- notebook for task group 2
+	├── _images                     <- folder for JPEGs and PNGs
+	├── _data                       <- folder of datasets and shape files (*.csv, *.xlsx, *.geojson, *.shp)
+	└── utils.py                    <- script with self-defined functions
 
 
 # References:
+
+- **Ookla Dataset:**  Ookla aggregates raw Speedtest performance and provides global fixed broadband and mobile (cellular) network performance metrics - https://github.com/teamookla/ookla-open-data
+- **FCC 477 Dataset:**  Data are reported at the Census block level, by provider (73M rows total), where salient fields include advertised bandwidths and fiber availability - https://www.fcc.gov/general/measuring-broadband-america
+- **ACS Census Data:**  The American Community Survey (ACS)  is a yearly 1% survey of the entire U.S. population - Data at census tract level available via census API and individual level but within PUMAs through IPUMS
+  - https://api.census.gov/data/2019/acs/acs5/profile/variables/DP02_0152PE.json
+  - https://api.census.gov/data/2019/acs/acs5/profile/variables/DP02_0153PE.json 
+  - https://www.census.gov/data/developers/data-sets/acs-5year.html
+  - https://usa.ipums.org/usa-action/variables/CIHISPEED
+- **Permit Data NYC:**  Includes 150 different types of sidewalk and roadway construction permits to utilities, contractors, government agencies and homeowners - https://data.cityofnewyork.us/Transportation/Street-Construction-Permits/tqtj-sjs8/data
+- **Permit Data Chicago:**  Applications to the Chicago Department of Transportation for permits under its jurisdiction - https://data.cityofchicago.org/Transportation/Transportation-Department-Permits/pubx-yq2d
 
 
 
@@ -54,5 +79,4 @@ DataKind provides the platform and resources for data scientists at any level of
 
 <img src="images/github_icon.png" width="20"> **Github:**  [https://www.github.com/datascisteven](https://www.github.com/datascisteven)
 
-<img src="images/Rainbow-Medium.png" width="20"> **Medium:** [https://datascisteven.medium.com](https://datascisteve.medium.com)
-
+<img src="images/Rainbow-Medium.png" width="20"> **Medium:** [https://datascisteven.medium.com](https://datascisteven.medium.com)
