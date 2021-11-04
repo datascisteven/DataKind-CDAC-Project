@@ -20,14 +20,73 @@ DataKind provides the platform and resources for data scientists at any level of
 # Objectives:
 
 1. First Task Group
-	- 1a. To align Ookla data at the census trac level for Florida
-	- 1b. Map the FCC and Ookla datasets at census tract level
-	- 1c. For maps, visualize availability (FCC) / performance (Ookla) and access (ACS) for each state
+   
+	- To align Ookla data at the census trac level for Florida
+	- Map the FCC and Ookla datasets at census tract level
+	- For maps, visualize availability (FCC) / performance (Ookla) and access (ACS) for each state
 
 2. Second Task Group
-	- 2a. Conduct EDA on NYC Permit Dataset
-	- 2b. What about other cities have similar open datasets for street construction permits related to internet fiber?
-	- 2c. What additional open datasets can you find that may be relevat to exploring construction for internet fiber or 5B?
+   
+	- Conduct EDA on NYC Permit Dataset
+	- What about other cities have similar open datasets for street construction permits related to internet fiber?
+	- What additional open datasets can you find that may be relevat to exploring construction for internet fiber or 5B?
+
+
+# Data
+
+We were given 3 preprocessed datasets, ACS (Census), FCC, Ookla, to begin work with, accompanied by shapefiles.
+
+The ACS database had numerous columns, but I chose to keep the following columns for analysis and/or visualization:
+
+- `f_black` = fraction of population black (`n_black` / `population`)
+- `f_hispanic` = fraction of population Hispanic (`n_hispanic` / `population`)
+- `f_ba` = fraction of population with Bachelor's (`n_ba` / `den_ba`)
+- `f_broadband` =  fraction of households with broadband access (`n_broadband` / `households`)
+- `f_computer` = fraction of households with computer access (`n_computer` / `households`)
+- `population` = total population
+- `mhi` = median household income
+- `n_children` = number of children
+- `households` = number of households
+
+The FCC database had the following columns:
+
+- `tract`: 11-digit tract FIPS code
+- `max_dn`: average maximum advertised downstream speed offered by provider in census tract by block
+- `max_up`: average maximum advertised upstream speed offered by provider in census tract by block
+- `dn10`:	average count of providers offering advertised downstream greater than 10 by block
+- `dn100`: average count of providers offering advertised downstream greater than 100 by block
+- `dn250`: average count of providers offering advertised downstream greater than 250 by block
+- `fiber_100u`: average count of providers offiering fiber by block
+
+
+The Ookla database had the following columns"
+
+
+
+
+# Mapping at the Census Tract Level
+
+The shapefiles may contain the following:
+
+`STATEFP`: State FIPS Code (2-digit)
+`COUNTYFP`: County FIPS Code (2-digit)
+`TRACTCE`: Census Tract Code (4-digit base number and 2-digit suffix)
+`AFFGEOID`
+`GEOID`: `STATEFP` + `COUNTYFP` + `TRACTCE`
+`NAME`: from `TRACTCE`, base number.suffix
+`LSAD`: Legal/Statistical Area Description codes
+`ALAND`: land area
+`AWATER`: water area
+`geometry`: designed to store shapely geometry objects
+
+There are 4906 rows in the shapefile, as well as 4906 unique rows of GEOID's. The state FIPS code is 36, and there are 62 county FIPS code in NY.  The AFFGEOID seems to be the GEOID affixed with 1400000US in front of each GEOID.  There are values given for land area, water area, and most importantly the geometry of the tract boundaries. An LSAD of CT tells us that we are dealing on the level of the Census Tract.
+
+Each GEOID consists of the state FIPS code, its county FIPS code, and then the tract FIPS code, which apparently in itself is not unique and can be repeated, so 2 + 3 + 6 digits in total for the three components or an 11-digit tract FIPS code that is unique for every tract.
+
+The NAME represents a census tract code that split into a 4-digit and 2-digit suffix placed after the decimal. Census tract numbers can consist of up to 6 digits:  up to a 4-digit basic number and optional 2-digit suffix, i.e. 1457.02. When used as name, any leading zeroes are eliminated and the suffix is appended if designated. 
+
+Within the standard census geographic hierarchy, census tracts never cross state or county boundaries, but may cross the boundaries of county subdivisions, places, urban areas, voting districts, congressional districts. 
+
 
 # Tableau visualizations:
 
@@ -38,6 +97,8 @@ DataKind provides the platform and resources for data scientists at any level of
 [Link to Tableau Public NYC 2](https://public.tableau.com/views/DataKIndUCCDACProjectPreliminaryEDA-NYCMetro/NYCMetroArea?:language=en-US&:display_count=n&:origin=viz_share_link)
 
 <img src='images/nyc_tableau.png'>
+
+## Chicago Visualizations
 
 [Link to Tableau Public Chicago](https://public.tableau.com/views/DataKIndUCCDACProjectPreliminaryEDA-Chicago/Chicagoland?:language=en-US&:display_count=n&:origin=viz_share_link)
 
