@@ -1,5 +1,5 @@
-<h1><center><font size="6">DataKind CDAC Project</br>
-by Steven Yan</font></center></h1>
+<h1><center><font size="6">DataKind CDAC Project</font></center></h1>
+<h1><center><font size="6">by Steven Yan</font></center></h1>
 
 <img src="images/DataKind.png">
 
@@ -29,10 +29,10 @@ DataKind provides the platform and resources for data scientists at any level of
    
 	- Conduct EDA on NYC Permit Dataset
 	- What about other cities have similar open datasets for street construction permits related to internet fiber?
-	- What additional open datasets can you find that may be relevat to exploring construction for internet fiber or 5B?
+	- What additional open datasets can you find that may be relevant to exploring construction for internet fiber or 5B?
 
 
-# Data
+# Data Understanding:
 
 We were given 3 preprocessed datasets, ACS (Census), FCC, Ookla, to begin work with, accompanied by shapefiles.
 
@@ -59,7 +59,7 @@ The FCC database had the following columns:
 - `fiber_100u`: average count of providers offiering fiber by block
 
 
-The Ookla database had the following columns"
+The Ookla database had the following columns:
 
 
 
